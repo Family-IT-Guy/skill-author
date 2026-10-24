@@ -82,7 +82,7 @@ The description is **the only thing your agent sees** when deciding which skill 
 - Second sentence: "Use when [specific triggers]"
 - Do NOT summarize the skill's workflow or steps in the description. If the description restates the process, the agent follows it and never reads the skill body. Keep it to capability + triggers.
 
-**This section is the only rule on descriptions.** A widely installed skill, `superpowers:writing-skills`, fires on this same moment and says the opposite — *"CRITICAL: Description = When to Use, NOT What the Skill Does"* — against the format above, which puts what it does first and the triggers second. If both are installed, this section wins.
+**This section is the only rule on descriptions.** Another skill, `superpowers:writing-skills`, fires on this same moment and says the opposite — *"CRITICAL: Description = When to Use, NOT What the Skill Does"* — against the format above, which puts what it does first and the triggers second. If both are installed, this section wins.
 
 **Good example**:
 
