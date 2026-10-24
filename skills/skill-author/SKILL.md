@@ -5,7 +5,7 @@ description: Create new agent skills with proper structure, progressive disclosu
 
 # Writing Skills
 
-Before drafting or editing a skill, load the `writing-great-skills` skill that ships in this plugin (`skill-author:writing-great-skills`, through the Skill tool; its `GLOSSARY.md` holds the full definitions) for the quality vocabulary and principles — predictability, leading words, the information-hierarchy ladder, progressive disclosure, and the failure modes (premature completion, duplication, sediment, sprawl, no-op) — and apply them throughout.
+Before drafting or editing a skill, load the `writing-great-skills` skill through the Skill tool (installed as a plugin, it is `skill-author:writing-great-skills`; its `GLOSSARY.md` holds the full definitions) for the quality vocabulary and principles — predictability, leading words, the information-hierarchy ladder, progressive disclosure, and the failure modes (premature completion, duplication, sediment, sprawl, no-op) — and apply them throughout.
 
 ## Process
 
