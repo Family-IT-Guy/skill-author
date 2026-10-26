@@ -1,7 +1,7 @@
 {
   "name": "skill-author",
-  "description": "Create new agent skills with proper structure, progressive disclosure, and bundled resources, using the writing-great-skills vocabulary that ships with it. Use when you want to create, write, build or edit a skill.",
-  "version": "1.0.0",
+  "description": "Creates, rewrites, splits or reviews agent skills with the right structure, progressive disclosure and bundled resources, using the writing-great-skills vocabulary that ships with it. Use when you want to create, write, build or edit a skill, or a skill gets ignored, fires at the wrong time, or has grown too long.",
+  "version": "1.1.0",
   "author": {
     "name": "Ben Gillenwater"
   },
