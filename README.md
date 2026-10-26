@@ -8,9 +8,11 @@ It's a Claude Code plugin from Family IT Guy. Both skills are adapted from [Matt
 
 ## What it does
 
-- It asks before it drafts: what the skill covers, the cases it has to handle, whether it needs scripts, and what reference material to include.
+- It looks before it asks. It reads your existing skills and past work for what it needs, and asks you only for what it can't find.
+- It checks whether a skill you already have fires at the same moment. If one does, it suggests changing that skill instead of adding a second.
 - It writes the description for the moment the skill should fire. The description is the only part of a skill Claude sees when deciding what to load, so it says what the skill does and when to use it. It never summarizes the steps, because Claude would follow the summary and never open the skill.
-- It keeps `SKILL.md` short. Detail that only some uses need goes into a companion file behind a pointer.
+- It keeps `SKILL.md` short. Detail that only some uses need goes into a companion file behind a pointer, and it cuts any sentence that changes nothing.
+- It shows you the full draft and where it will be saved, and saves nothing until you approve.
 - It runs the skill once on a real case. Before you rely on a new or edited skill, it has an agent use it on one real task and compares what the agent did with what the skill says. Where they differ, the skill changes. Edits get tested in a fresh session, because a skill edited mid-session doesn't reach the session that edited it.
 
 ## When to reach for it
