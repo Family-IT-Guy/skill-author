@@ -7,7 +7,7 @@ description: Creates, rewrites, splits or reviews agent skills with the right st
 
 A skill makes an agent take the same process every run. **Predictability** is the test for every line below. Context is finite, so a skill loads in layers: the description is always in context and decides when the skill fires, the body loads only when it fires, and sibling files load only for the branches that need them. Each layer holds only what its moment needs.
 
-Before drafting or editing a skill, load the `writing-great-skills` skill through the Skill tool (installed as a plugin, it is `skill-author:writing-great-skills`; its `GLOSSARY.md` holds the full definitions) for the vocabulary used below. If a `personal.md` sits beside this file, read it too: it holds the owner's own values.
+Before drafting or editing a skill, load the `writing-great-skills` skill for the vocabulary used below; if this harness can't load it by name, read its `SKILL.md` and `GLOSSARY.md` directly. Installed as a plugin, its name may carry a prefix, such as `skill-author:writing-great-skills`. `GLOSSARY.md` holds the full definitions. If a `personal.md` sits beside this file, read it too: it holds the owner's own values.
 
 ## Steps
 
@@ -19,7 +19,7 @@ Before drafting or editing a skill, load the `writing-great-skills` skill throug
    - First sentence: what the skill does, in the third person. Second: "Use when" followed by concrete moments — words the user says, a point in a task, a file type, a claim about to be made. "When relevant" is not a moment.
    - One trigger per branch. Synonyms for one branch are duplication.
    - Never summarize the steps, because an agent that reads a summary follows it and never opens the body.
-   - Put the key use case first and keep it short: Claude Code cuts the description, with any `when_to_use` text, at 1,536 characters in its skill listing.
+   - Put the key use case first and keep it short: harnesses cut long descriptions in the list the agent chooses from, so find the user's harness's limit in its current documentation.
    - Leave out owner names, accounts and repos, because skills get shared and specifics go stale.
 
    Done when every branch from step 1 has exactly one trigger and nothing in the description summarizes the steps.
@@ -31,15 +31,15 @@ Before drafting or editing a skill, load the `writing-great-skills` skill throug
    - Say why in one sentence where a step could be misread. The reason is what lets the agent handle cases the skill never lists.
    - Use a pretrained **leading word** in place of a restated list.
    - Add a script in `scripts/` only when the operation is deterministic, the same code would otherwise be regenerated every run, or errors need explicit handling.
-   - A skill only the user should start gets `disable-model-invocation: true` in its frontmatter; it then carries no description in context, and no other skill can load it.
+   - A skill only the user should start gets the harness's setting, where it has one, that keeps the agent from loading it on its own. Check what else that setting does in the user's harness: in some, the skill then carries no description in context and no other skill can load it.
 
    Done when every step ends with a completion criterion and the body is under 100 lines.
 
 5. **Prune.** Every sentence costs context each time the skill loads. Test each one on its own and delete it whole if it is a **no-op** (the agent would do this anyway), **duplication** (another line or skill already says it), irrelevant (stale, or does not bear on the task) or **sediment** (an old patch a clear reason now covers). Done when every remaining sentence changes behavior.
 
-6. **Present the draft for approval.** Show the full SKILL.md, any sibling files, the overlaps you found, and where it will be saved: `~/.claude/skills/<name>/` for every project, `<project>/.claude/skills/<name>/` for one project, or a plugin. Save nothing until the user approves, because a saved skill goes live in every session that loads that folder. Done when the user has approved the exact draft shown, or asked for changes.
+6. **Present the draft for approval.** Show the full SKILL.md, any sibling files, the overlaps you found, and where it will be saved: the folder the user's harness loads skills from, for every project or for one project, or a plugin. Save nothing until the user approves, because a saved skill goes live in every session that loads that folder. Done when the user has approved the exact draft shown, or asked for changes.
 
-7. **Run it once on a real case.** A draft is a hypothesis about what an agent will do, and reading it cannot test that. Put the skill in front of an agent **the way it will actually be reached** — by its description if it is model-invoked, or by name or path if it carries `disable-model-invocation` — then give one real case, not a hypothetical, and compare what the agent does with what the skill says. Where they differ, the skill is the thing that changes. This applies to edits as well as new skills, which is where it is most often skipped.
+7. **Run it once on a real case.** A draft is a hypothesis about what an agent will do, and reading it cannot test that. Put the skill in front of an agent **the way it will actually be reached** — by its description if it is model-invoked, or by name or path if only the user starts it — then give one real case, not a hypothetical, and compare what the agent does with what the skill says. Where they differ, the skill is the thing that changes. This applies to edits as well as new skills, which is where it is most often skipped.
 
    **A skill edited mid-session does not reach the agent that edited it.** Measured once: a step was added, then revised, then the skill was invoked, and the harness served the revision before it, matching neither the disk nor the prior served copy. So run the real case in a fresh session, or supply the file directly by path, which reads current. One real case is an illustration, not proof.
 
