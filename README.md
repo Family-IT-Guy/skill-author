@@ -35,4 +35,4 @@ In Claude Code you can install them from the Family IT Guy plugin marketplace in
 /plugin install skill-author@familyitguy
 ```
 
-Then ask for help building a skill.
+Then ask for help building a skill. To update later: `/plugin marketplace update familyitguy` then `/plugin install skill-author@familyitguy`.
